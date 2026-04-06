@@ -271,7 +271,11 @@ foreach ($rpRows as $r) { $matrix[(int)$r['page_id']][(int)$r['role_id']] = (int
     .tri label{margin-right:10px}
     .small{font-size:12px}
   </style>
+<<<<<<< HEAD
+  <link rel="stylesheet" href="css/preclinic-theme.css">
+=======
   <link rel="stylesheet" href="/css/preclinic-theme.css">
+>>>>>>> origin/main
 </head>
 <body>
   <div class="wrap">

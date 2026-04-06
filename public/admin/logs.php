@@ -58,7 +58,11 @@ if ($selectedLog && in_array($selectedLog, $logFiles)) {
         .log-entry.delete { border-color: #dc3545; }
         .log-entry.error { border-color: #ffc107; }
     </style>
+<<<<<<< HEAD
+  <link rel="stylesheet" href="../css/preclinic-theme.css">
+=======
   <link rel="stylesheet" href="/css/preclinic-theme.css">
+>>>>>>> origin/main
 </head>
 <body>
 

@@ -255,7 +255,11 @@ if ($_SERVER['REQUEST_METHOD']==='POST') {
               th{ background:#f4f4f4; }
               .right{ text-align:right; }
             </style>
+<<<<<<< HEAD
+  <link rel="stylesheet" href="css/preclinic-theme.css">
+=======
   <link rel="stylesheet" href="/css/preclinic-theme.css">
+>>>>>>> origin/main
 </head>
           <body>
             <h1>ინვოისი № <?= h($order_no) ?></h1>

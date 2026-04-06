@@ -74,7 +74,11 @@ $services = $stmt->fetchAll(PDO::FETCH_ASSOC);
       a.delete-link { color: red; text-decoration: none; font-weight: bold; }
       a.delete-link:hover { text-decoration: underline; }
     </style>
+<<<<<<< HEAD
+  <link rel="stylesheet" href="css/preclinic-theme.css">
+=======
   <link rel="stylesheet" href="/css/preclinic-theme.css">
+>>>>>>> origin/main
 </head>
 <body>
 
