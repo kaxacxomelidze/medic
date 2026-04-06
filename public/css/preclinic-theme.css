@@ -1,0 +1,233 @@
+/*
+  Preclinic-inspired global theme layer
+  Applies visual refresh without altering PHP business logic
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap');
+
+:root{
+  --pc-primary:#2e37a4;
+  --pc-primary-600:#232a87;
+  --pc-secondary:#00d0f1;
+  --pc-accent:#5b66d6;
+  --pc-bg:#f6f8fc;
+  --pc-surface:#ffffff;
+  --pc-surface-2:#f9fbff;
+  --pc-text:#1f2937;
+  --pc-muted:#6b7280;
+  --pc-border:#e6eaf5;
+  --pc-border-strong:#d5dcef;
+  --pc-success:#22c55e;
+  --pc-danger:#ef4444;
+  --pc-warning:#f59e0b;
+
+  --pc-radius-sm:10px;
+  --pc-radius:14px;
+  --pc-radius-lg:18px;
+
+  --pc-shadow-xs:0 2px 8px rgba(31,41,55,.06);
+  --pc-shadow:0 10px 28px rgba(46,55,164,.09);
+  --pc-shadow-lg:0 18px 40px rgba(46,55,164,.16);
+}
+
+html,body{
+  background:var(--pc-bg)!important;
+  color:var(--pc-text)!important;
+}
+
+body{
+  font-family:'Poppins',system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif!important;
+  line-height:1.45;
+}
+
+/* subtle background ornaments like preclinic dashboards */
+body::before,
+body::after{
+  content:"";
+  position:fixed;
+  z-index:-1;
+  border-radius:50%;
+  filter:blur(2px);
+  pointer-events:none;
+}
+body::before{
+  width:360px;height:360px;right:-90px;top:-90px;
+  background:radial-gradient(circle at 35% 35%, rgba(0,208,241,.22), rgba(46,55,164,.02) 66%);
+}
+body::after{
+  width:420px;height:420px;left:-140px;bottom:-140px;
+  background:radial-gradient(circle at 40% 40%, rgba(91,102,214,.18), rgba(91,102,214,0) 72%);
+}
+
+/* Header / Topbar */
+.topbar,
+.navbar,
+.admin-nav,
+.pay-topbar{
+  background:linear-gradient(90deg,var(--pc-primary),var(--pc-accent))!important;
+  color:#fff!important;
+  border:0!important;
+  box-shadow:0 12px 28px rgba(46,55,164,.25)!important;
+}
+
+.topbar .brand,
+.topbar a,
+.navbar a,
+.admin-nav a{color:#fff!important}
+
+/* Tabs */
+.tabs,.subtabs,.upnav{
+  border-bottom:1px solid var(--pc-border-strong)!important;
+  gap:8px!important;
+}
+.tabs a,.subtabs a,.upnav a,.tab{
+  border:1px solid transparent!important;
+  border-radius:12px 12px 0 0!important;
+  transition:all .18s ease!important;
+}
+
+.tabs a:not(.active),.subtabs a:not(.active),.upnav a:not(.active),.tab:not(.active){
+  background:linear-gradient(180deg,#3f4ab9,#2e37a4)!important;
+  color:#fff!important;
+}
+
+.tabs a.active,.subtabs a.active,.upnav a.active,.tab.active,
+.tabs a:hover,.subtabs a:hover,.upnav a:hover,.tab:hover{
+  background:#fff!important;
+  color:var(--pc-primary)!important;
+  border-color:var(--pc-border)!important;
+  box-shadow:0 -1px 0 #fff inset, 0 3px 0 var(--pc-secondary) inset!important;
+}
+
+/* Cards / panels */
+.card,.panel,.modal,.modal-card,.widget,.box,.table-wrap,.table-scroll,
+.login-container,.stat-card,.rightSidebar,.leftnav,.sidebar,.user-dropdown,
+.ms .ms-list,.innerfrm{
+  background:var(--pc-surface)!important;
+  border:1px solid var(--pc-border)!important;
+  border-radius:var(--pc-radius)!important;
+  box-shadow:var(--pc-shadow)!important;
+}
+
+.card:hover,.menu-card:hover,.widget:hover,.stat-card:hover{
+  box-shadow:var(--pc-shadow-lg)!important;
+}
+
+/* table presentation similar to template */
+.table,.Ctable,.patients-table,.pay-table{
+  border:1px solid var(--pc-border)!important;
+  border-radius:12px!important;
+  overflow:hidden;
+}
+th,
+.Ctable thead th,
+.patients-table thead th,
+.pay-table thead th{
+  background:linear-gradient(180deg,#f5f7ff,#ebefff)!important;
+  color:#303656!important;
+  border-bottom:1px solid var(--pc-border)!important;
+  font-weight:700!important;
+}
+
+td,.Ctable td,.patients-table td,.pay-table td{
+  border-bottom:1px solid #edf1fb!important;
+}
+
+tr:nth-child(even) td{background:#fbfcff!important}
+tr:hover td{background:#f5f9ff!important}
+
+/* Forms */
+input[type=text],input[type=password],input[type=date],input[type=number],input[type=email],
+input[type=datetime-local],select,textarea,.form-control{
+  border:1px solid var(--pc-border)!important;
+  border-radius:11px!important;
+  background:#fff!important;
+  min-height:42px;
+  transition:border-color .15s ease,box-shadow .15s ease,background-color .15s ease;
+}
+
+input:focus,select:focus,textarea:focus,.form-control:focus{
+  border-color:var(--pc-secondary)!important;
+  box-shadow:0 0 0 4px rgba(0,208,241,.2)!important;
+  outline:none!important;
+}
+
+/* Buttons */
+button,.btn,.pay-btn,input[type=submit]{
+  border-radius:11px!important;
+  font-weight:600!important;
+  letter-spacing:.1px;
+  transition:all .15s ease!important;
+}
+
+.btn-primary,.btn.btn-primary,.pay-btn,.login-form button,input[type=submit],
+.btn:not(.ghost):not(.btn-outline-light):not(.danger-btn):not(.edit-btn){
+  background:linear-gradient(90deg,var(--pc-primary),#4a55cb)!important;
+  border-color:transparent!important;
+  color:#fff!important;
+}
+
+.btn:hover,.pay-btn:hover,input[type=submit]:hover{
+  transform:translateY(-1px);
+  box-shadow:0 10px 22px rgba(46,55,164,.22)!important;
+}
+
+.btn.ghost,.btn-outline-light,.edit-btn{
+  background:#fff!important;
+  color:var(--pc-primary)!important;
+  border:1px solid var(--pc-border-strong)!important;
+}
+
+.danger-btn,.btn.danger,.btn-danger{
+  background:linear-gradient(90deg,#ef4444,#dc2626)!important;
+  color:#fff!important;
+  border-color:transparent!important;
+}
+
+/* Metrics, pills, badges */
+.badge,.pill{
+  border-radius:999px!important;
+  border:1px solid #d8e2fb!important;
+  background:#f3f6ff!important;
+  color:#2e3a87!important;
+  font-weight:600!important;
+}
+
+/* Login / auth polish */
+.login-container,
+.login-card .card{
+  border-radius:18px!important;
+  box-shadow:0 18px 40px rgba(46,55,164,.16)!important;
+  border:1px solid #e3e8f8!important;
+}
+.login-form h2,.card-header h4{color:var(--pc-primary)!important}
+
+/* Admin menu tiles */
+.menu-card{
+  border:1px solid #e2e7fb!important;
+  border-radius:16px!important;
+  background:linear-gradient(180deg,#fff,#f9fbff)!important;
+}
+.menu-icon{color:var(--pc-primary)!important}
+
+/* Utility containers */
+.container,.subtabswrap{
+  max-width:1840px!important;
+}
+
+/* Scrollbars */
+*{scrollbar-width:thin;scrollbar-color:#9aa5df #eef2ff}
+*::-webkit-scrollbar{width:10px;height:10px}
+*::-webkit-scrollbar-thumb{background:#9aa5df;border-radius:10px}
+*::-webkit-scrollbar-track{background:#eef2ff}
+
+/* Print keep clean */
+@media print{
+  body::before,body::after{display:none!important}
+  .card,.panel,.table-wrap,.table-scroll{box-shadow:none!important}
+}
+
+@media (max-width:992px){
+  .topbar{padding:10px 14px!important}
+  .tabs a,.subtabs a,.upnav a{padding:8px 10px!important;font-size:13px!important}
+}
