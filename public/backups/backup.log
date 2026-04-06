@@ -1,0 +1,88 @@
+[2026-01-27 22:17:37] Request received. Session: []
+[2026-01-27 22:17:37] Unauthorized access from: 172.19.0.1
+[2026-01-27 22:17:46] Request received. Session: []
+[2026-01-27 22:17:46] Unauthorized access from: 172.19.0.1
+[2026-01-27 22:19:02] Request received. Session: []
+[2026-01-27 22:19:02] Unauthorized access from: 172.19.0.1
+[2026-01-27 22:19:57] Request received. Session: []
+[2026-01-27 22:19:57] Unauthorized access from: 172.19.0.1
+[2026-01-27 22:20:06] Request: POST from 172.19.0.1
+[2026-01-27 22:20:06] Auth OK, starting backup
+[2026-01-27 22:20:06] === Starting backup ===
+[2026-01-27 22:20:06] Upload to S3: No
+[2026-01-27 22:20:06] Created temp directory
+[2026-01-27 22:20:06] Starting database export...
+[2026-01-27 22:20:06] ERROR: Unknown database 'sanmedic'
+[2026-01-27 22:20:15] Request: POST from 172.19.0.1
+[2026-01-27 22:20:15] Auth OK, starting backup
+[2026-01-27 22:20:15] === Starting backup ===
+[2026-01-27 22:20:15] Upload to S3: No
+[2026-01-27 22:20:15] Created temp directory
+[2026-01-27 22:20:15] Starting database export...
+[2026-01-27 22:20:15] ERROR: Unknown database 'sanmedic'
+[2026-01-27 22:20:37] Request: POST from 172.19.0.1
+[2026-01-27 22:20:37] Auth OK, starting backup
+[2026-01-27 22:20:37] === Starting backup ===
+[2026-01-27 22:20:37] Upload to S3: No
+[2026-01-27 22:20:37] Created temp directory
+[2026-01-27 22:20:37] Starting database export...
+[2026-01-27 22:20:37] Database exported: 0 tables, 0 MB
+[2026-01-27 22:20:37] Copying files...
+[2026-01-27 22:20:37] Creating ZIP archive...
+[2026-01-27 22:20:37] ZIP created: 7 files, 0.01 MB
+[2026-01-27 22:20:37] === Backup completed ===
+[2026-01-27 22:25:39] Request: POST from 172.19.0.1
+[2026-01-27 22:25:39] Auth OK, starting backup
+[2026-01-27 22:25:39] === Starting backup ===
+[2026-01-27 22:25:39] Upload to S3: No
+[2026-01-27 22:25:39] Created temp directory
+[2026-01-27 22:25:39] Starting database export...
+[2026-01-27 22:25:39] ERROR: Expression #6 of SELECT list is not in GROUP BY clause and contains nonaggregated column 'sanmedic_clinic.up.allowed' which is not functionally dependent on columns in GROUP BY clause; this is incompatible with sql_mode=only_full_group_by
+[2026-01-27 22:26:38] Request: POST from 172.19.0.1
+[2026-01-27 22:26:38] Auth OK, starting backup
+[2026-01-27 22:26:38] === Starting backup ===
+[2026-01-27 22:26:38] Upload to S3: No
+[2026-01-27 22:26:38] Created temp directory
+[2026-01-27 22:26:38] Starting database export...
+[2026-01-27 22:26:38] ERROR: Expression #6 of SELECT list is not in GROUP BY clause and contains nonaggregated column 'sanmedic_clinic.up.allowed' which is not functionally dependent on columns in GROUP BY clause; this is incompatible with sql_mode=only_full_group_by
+[2026-01-27 22:27:35] Request: POST from 172.19.0.1
+[2026-01-27 22:27:35] Auth OK, starting backup
+[2026-01-27 22:27:35] === Starting backup ===
+[2026-01-27 22:27:35] Upload to S3: No
+[2026-01-27 22:27:35] Created temp directory
+[2026-01-27 22:27:35] Starting database export...
+[2026-01-27 22:27:35] ERROR: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1
+[2026-01-27 22:28:45] Request: POST
+[2026-01-27 22:28:45] Auth OK
+[2026-01-27 22:28:45] === Starting backup ===
+[2026-01-27 22:28:45] Created temp directory
+[2026-01-27 22:28:45] Starting mysqldump...
+[2026-01-27 22:28:45] mysqldump failed: 
+[2026-01-27 22:28:45] ERROR: Database export failed: 
+[2026-01-27 22:29:00] Request: POST
+[2026-01-27 22:29:00] Auth OK
+[2026-01-27 22:29:00] === Starting backup ===
+[2026-01-27 22:29:00] Created temp directory
+[2026-01-27 22:29:00] Starting mysqldump...
+[2026-01-27 22:29:00] mysqldump failed: 
+[2026-01-27 22:29:00] ERROR: Database export failed: 
+[2026-01-27 22:29:29] Request: POST
+[2026-01-27 22:29:29] Auth OK
+[2026-01-27 22:29:29] === Starting backup ===
+[2026-01-27 22:29:29] Created temp directory
+[2026-01-27 22:29:29] Starting mysqldump...
+[2026-01-27 22:29:29] Database exported: 3.51 MB
+[2026-01-27 22:29:29] Copying files...
+[2026-01-27 22:29:29] Creating ZIP archive...
+[2026-01-27 22:29:30] ZIP created: 7 files, 0.37 MB
+[2026-01-27 22:29:30] === Backup completed ===
+[2026-01-27 22:31:52] Request: POST
+[2026-01-27 22:31:52] Auth OK
+[2026-01-27 22:31:52] === Starting backup ===
+[2026-01-27 22:31:52] Created temp directory
+[2026-01-27 22:31:52] Starting mysqldump...
+[2026-01-27 22:31:52] Database exported: 3.51 MB
+[2026-01-27 22:31:52] Copying files...
+[2026-01-27 22:31:52] Creating ZIP archive...
+[2026-01-27 22:31:52] ZIP created: 7 files, 0.37 MB
+[2026-01-27 22:31:52] === Backup completed ===

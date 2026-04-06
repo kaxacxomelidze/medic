@@ -1,0 +1,271 @@
+/* =========================================
+   UI UPLIFT PATCH (append at the end)
+   ========================================= */
+
+/* ---- Theme Tokens (extended) ---- */
+:root{
+  --brand:#21c1a6;
+  --brand-2:#14937c;
+  --brand-3:#0f766e;
+  --bg:#f9f8f2;
+  --panel:#ffffff;
+  --text:#1f2937;
+  --muted:#6b7280;
+  --line:#e5e7eb;
+
+  /* State */
+  --ok:#10b981;        /* green-500 */
+  --warn:#f59e0b;      /* amber-500 */
+  --err:#ef4444;       /* red-500 */
+  --info:#3b82f6;      /* blue-500 */
+
+  /* Elevation */
+  --shadow-1: 0 1px 3px rgba(0,0,0,.06), 0 1px 2px rgba(0,0,0,.05);
+  --shadow-2: 0 4px 12px rgba(0,0,0,.10);
+  --shadow-3: 0 8px 24px rgba(0,0,0,.16);
+
+  /* Radii & spacing */
+  --r-4:4px; --r-6:6px; --r-8:8px; --r-10:10px; --r-12:12px;
+  --space-1:4px; --space-2:8px; --space-3:12px; --space-4:16px; --space-5:20px;
+
+  /* Focus ring */
+  --ring: 0 0 0 3px rgba(33,193,166,.22);
+
+  /* Z-index */
+  --z-overlay: 99999;
+  --z-dropdown: 50;
+  --z-sticky: 20;
+
+  /* Table */
+  --thead-sticky-bg:#ffffff;
+}
+
+/* ---- Optional Dark Mode ---- */
+@media (prefers-color-scheme: dark){
+  :root{
+    --bg:#0b1014;
+    --panel:#0f151a;
+    --text:#e5e7eb;
+    --muted:#94a3b8;
+    --line:#1f2937;
+    --thead-sticky-bg:#10171e;
+    --shadow-1:none; --shadow-2:none; --shadow-3:none;
+  }
+}
+.theme-dark{
+  color-scheme: dark;
+  --bg:#0b1014; --panel:#0f151a; --text:#e5e7eb; --muted:#94a3b8; --line:#1f2937;
+  --thead-sticky-bg:#10171e;
+}
+
+/* ---- Global resets/tweaks ---- */
+:focus-visible{
+  outline: none !important;
+  box-shadow: var(--ring) !important;
+  border-color: var(--brand) !important;
+}
+a, button{ -webkit-tap-highlight-color: transparent; }
+img{ max-width:100%; height:auto; }
+
+/* ---- Scrollbar theming ---- */
+*{
+  scrollbar-width: thin;
+  scrollbar-color: var(--brand) rgba(0,0,0,.08);
+}
+*::-webkit-scrollbar{ height:10px; width:10px; }
+*::-webkit-scrollbar-thumb{ background: var(--brand); border-radius:10px; }
+*::-webkit-scrollbar-track{ background: rgba(0,0,0,.06); }
+
+/* ---- Right sidebar becomes sticky on desktop ---- */
+.rightSidebar{
+  position: sticky;
+  top: 24px;
+}
+
+/* ---- Topbar: user dropdown elevation ---- */
+.user-dropdown{
+  box-shadow: var(--shadow-3);
+  z-index: var(--z-dropdown);
+}
+
+/* ---- Buttons (normalize variants to keep existing classes working) ---- */
+.btn{
+  border-radius: var(--r-6);
+  box-shadow: var(--shadow-1);
+}
+.btn:hover{ box-shadow: var(--shadow-2); }
+.pay-btn{
+  border-radius: var(--r-6);
+  box-shadow: var(--shadow-1);
+}
+.pay-btn:active{ transform: translateY(0); box-shadow: var(--shadow-1); }
+.edit-btn{ color:#115b9b; background:#eef6ff; border-color:#d9e9ff; }
+.edit-btn:hover{ background:#e6f0ff; }
+.danger-btn{ color:#b91c1c; background:#fee2e2; border-color:#fecaca; }
+.danger-btn:hover{ background:#ffdada; }
+
+/* ---- Inputs: consistent height + states ---- */
+input[type="text"], select, textarea{
+  transition: border-color .12s ease, box-shadow .12s ease, background-color .12s ease;
+}
+input[disabled], .disCol{
+  background:#f3f4f6 !important; color:#6b7280 !important;
+}
+
+/* ---- Tabs/subtabs: tighter contrast on hover ---- */
+.tabs a.active, .tabs a:hover{
+  border:1px solid #cfeee8; border-bottom-color:transparent;
+  box-shadow: inset 0 -2px 0 #fff;
+}
+.subtabs a{ box-shadow: inset 0 -2px 0 rgba(255,255,255,.6); }
+
+/* ---- Patients table & Pay table: sticky headers + zebra ---- */
+.patients-table thead th,
+.pay-table thead th{
+  position: sticky; top: 0; z-index: var(--z-sticky);
+  background: var(--thead-sticky-bg);
+}
+.patients-table tbody tr:nth-child(odd){ background: rgba(0,0,0,.02); }
+.pay-table tbody tr:nth-child(odd){ background: rgba(0,0,0,.02); }
+
+/* ---- Compact table variant (opt-in) ---- */
+.table--compact th,.table--compact td{ padding:8px 10px; }
+
+/* ---- Pay modal: header pinned ---- */
+#payOverlay .modal{
+  border-radius: var(--r-10);
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow-3);
+}
+.modal__head{
+  position: sticky; top: 0; z-index: var(--z-sticky);
+  backdrop-filter: blur(6px);
+}
+
+/* ---- Unified overlay (support both selectors) ---- */
+#payOverlay,
+.modal-overlay{
+  z-index: var(--z-overlay) !important;
+  backdrop-filter: blur(2px);
+}
+
+/* ---- Pills / Chips ---- */
+.pill{ display:inline-flex; align-items:center; gap:6px;
+  padding:4px 10px; border-radius:999px; font-weight:600; font-size:12px;
+  border:1px solid #e2e8f0; background:#f8fafc; color:#334155;
+}
+.pill--ok{ border-color: #d1fae5; background:#ecfdf5; color:#065f46; }
+.pill--warn{ border-color:#fde68a; background:#fffbeb; color:#92400e; }
+.pill--err{ border-color:#fecaca; background:#fee2e2; color:#991b1b; }
+
+/* ---- Badges ---- */
+.badge{ display:inline-block; padding:2px 8px; border-radius:6px; font-weight:700; font-variant-numeric: tabular-nums; }
+.badge--ok{ background:#ecfdf5; color:#065f46; }
+.badge--err{ background:#fee2e2; color:#991b1b; }
+.badge--info{ background:#e0f2fe; color:#075985; }
+
+/* ---- Toast (simple) ---- */
+.toast{
+  position: fixed; right:16px; bottom:16px; z-index:var(--z-overlay);
+  min-width: 240px; max-width: 420px;
+  background: var(--panel); color: var(--text); border:1px solid var(--line); border-radius:10px;
+  box-shadow: var(--shadow-3); padding:12px 14px; display:flex; gap:10px; align-items:flex-start;
+}
+.toast--ok{ border-color:#bbf7d0; }
+.toast--err{ border-color:#fecaca; }
+
+/* ---- Skeleton loader ---- */
+.skeleton{
+  position:relative; overflow:hidden; background: linear-gradient(90deg, #f3f4f6 25%, #e5e7eb 37%, #f3f4f6 63%);
+  background-size:400% 100%;
+  animation: shimmer 1.2s ease-in-out infinite;
+  border-radius:8px; min-height: 12px;
+}
+@keyframes shimmer{ 0%{background-position:100% 0} 100%{background-position:0 0} }
+
+/* ---- Spinner (CSS only) ---- */
+.spinner-gear{
+  width:20px; height:20px; border-radius:50%;
+  border:3px solid var(--brand); border-top-color: transparent;
+  animation: spin 0.8s linear infinite;
+}
+
+/* ---- Search input subtle focus ---- */
+#searchInput:focus{ box-shadow: var(--ring); border-color: var(--brand); }
+
+/* ---- Sticky invoice action row (inv_modal items table) ---- */
+#invoid tr:first-child th{
+  position: sticky; top: 0; z-index: var(--z-sticky);
+  background: var(--thead-sticky-bg);
+}
+
+/* ---- Tooltips (attribute-based) ---- */
+[aria-label][data-tooltip]:hover::after{
+  content: attr(aria-label);
+  position:absolute; transform: translateY(calc(-100% - 8px));
+  background:#111; color:#fff; padding:6px 8px; font-size:12px; border-radius:6px; white-space:nowrap;
+}
+
+/* ---- Accessible helpers ---- */
+.sr-only{ position:absolute !important; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); border:0; }
+
+/* ---- Reduced motion ---- */
+@media (prefers-reduced-motion: reduce){
+  *{ animation:none !important; transition:none !important; }
+}
+
+/* ---- Print-friendly for invoices / modal content ---- */
+@media print{
+  body{ background:#fff; }
+  .topbar,.container>.rightSidebar,.subtabswrap,.tabs,#payOverlay .close{ display:none !important; }
+  #payOverlay{ position:static; padding:0; background:transparent; }
+  #payOverlay .modal{ box-shadow:none; border:0; padding:0; max-height:none; }
+  .patients-table, .pay-table, #invoid{
+    box-shadow:none; border:1px solid #ccc; page-break-inside:auto;
+  }
+  .patients-table thead th, .pay-table thead th, #invoid th{
+    position:sticky; top:0; background:#fff !important; -webkit-print-color-adjust: exact; print-color-adjust: exact;
+  }
+  tr, img{ page-break-inside: avoid; }
+}
+
+/* ---- Fine-grained responsive tweaks ---- */
+@media (max-width: 1200px){
+  .patients-table, .pay-table{ font-size:13px; }
+}
+@media (max-width: 768px){
+  .topbar{ padding:10px 16px; }
+  .container{ padding:0 16px; }
+  .rightSidebar{ position:static; }
+  .user-dropdown{ right: 8px; }
+}
+
+/* ---- Legacy bridge fixes (keep old selectors working) ---- */
+#payOverlay .modal .close,
+.modal-box .close-btn{
+  transition: background-color .12s ease, color .12s ease, border-color .12s ease;
+}
+#payOverlay .modal .close:focus-visible{
+  box-shadow: var(--ring);
+}
+
+/* ---- Input sizes (utility) ---- */
+.input--sm{ height:32px; padding:6px 8px; font-size:13px; }
+.input--lg{ height:44px; padding:10px 12px; font-size:16px; }
+
+/* ---- Table row hover target size ---- */
+.patients-table tbody tr,
+.pay-table tbody tr{ transition: background-color .08s ease; }
+
+/* ---- Inline code badge ---- */
+code.inline{
+  background:#f3f4f6; border:1px solid #e5e7eb; border-radius:6px; padding:2px 6px; font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "DejaVu Sans Mono", monospace;
+}
+
+/* ---- Form validation color hints (opt-in classes) ---- */
+.is-valid{ border-color:#34d399 !important; }
+.is-invalid{ border-color:#f87171 !important; }
+.help-text{ color: var(--muted); font-size:12px; margin-top:4px; }
+
+/* ---- Selection color ---- */
+::selection{ background: rgba(33,193,166,.25); color: inherit; }

@@ -1,0 +1,78 @@
+  <!doctype html>
+  <html lang="ka">
+    <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <style>
+        @page { size: A4 portrait; margin: 14mm; }
+        html, body { margin:0; padding:0; background:#fff; }
+        body{ font-family:"DejaVu Sans", system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; font-size:12.5px; color:#1F2328; }
+        h1{ font-size:18px; margin:0 0 8px; }
+        .muted{ color:#666 }
+        .grid{ display:grid; grid-template-columns: 1fr 1fr; gap:8px 24px; margin:10px 0 6px; }
+        .box{ border:1px solid #cfcfcf; padding:8px; border-radius:6px; }
+        .row{ display:flex; justify-content:space-between; gap:8px; border-bottom:1px dashed #e6e6e6; padding:3px 0; }
+        .row:last-child{ border-bottom:none; }
+        .row span{ color:#555; }
+        table{ width:100%; border-collapse:collapse; margin-top:10px; }
+        th,td{ border:1px solid #ddd; padding:6px; text-align:left; vertical-align:top; }
+        th{ background:#f6f6f6; font-weight:700; }
+        .right{ text-align:right; }
+        .totals{ margin-top:10px; border:1px solid #cfcfcf; border-radius:6px; overflow:hidden; }
+        .tot-row{ display:flex; justify-content:space-between; padding:8px 10px; border-bottom:1px solid #e9e9e9; }
+        .tot-row:last-child{ border-bottom:none; }
+        .tot-row strong{ font-variant-numeric: tabular-nums; }
+        .sign{ margin-top:22px; display:flex; gap:40px; }
+        .sigline{ width:260px; border-top:1px solid #000; text-align:center; padding-top:4px; }
+        .section-title{ margin-top:18px; font-weight:700; }
+      </style>
+    </head>
+    <body>
+      <h1>გადახდების ქვითარი № PAY-20251008-0001</h1>
+      <div class="muted">დრო: 2025-10-08 13:28</div>
+
+      <div class="grid">
+        <div class="box">
+          <div class="row"><span><b>მიმწოდებელი</b></span><span></span></div>
+          <div class="row"><span>დასახელება:</span><b>„სანმედი“ -</b></div>
+          <div class="row"><span>საიდ. კოდი:</span><b>405695323</b></div>
+          <div class="row"><span>მისამართი:</span><b>ერთიანობისთვის მებრძოლთა ქუჩა N55</b></div>
+          <div class="row"><span>ტელ:</span><b>555550845 / 558291614</b></div>
+          <div class="row"><span>ბანკი:</span><b>სს &quot;ბანკი&quot; | BAGAGE22</b></div>
+          <div class="row"><span>ა/ა:</span><b>GE02BG0000000589324177</b></div>
+        </div>
+        <div class="box">
+          <div class="row"><span><b>გადამხდელი</b></span><span></span></div>
+          <div class="row"><span>სახელი, გვარი:</span><b>მარიტა ცარციძე</b></div>
+          <div class="row"><span>პ/ნ:</span><b>01350241551</b></div>
+          <div class="row"><span>ჩანაწერები:</span><b>1</b></div>
+ <tr>
+  <td>1</td>
+  <td>2025-10-07 17:16:00</td>
+  <td>დონორი</td>
+  <td>—</td>  <!-- stays in the same column -->
+  <td>ORD-20251007171713-c801</td>
+  <td class="right">80.00</td>
+</tr>
+
+          <tr>
+            <td colspan="5" class="right"><b>ჯამი</b></td>
+            <td class="right"><b>80.00</b></td>
+          </tr>
+        </tbody>
+      </table>
+
+            <div class="totals">
+                  <div class="tot-row"><span>დონორი</span><strong>80.00</strong></div>
+                <div class="tot-row"><span><b>სულ</b></span><strong>80.00</strong></div>
+      </div>
+      
+      <!-- Services used (from selected payments / fallback) -->
+      
+      <div class="sign">
+        <div class="sigline">გენერალური დირექტორი</div>
+        <div class="sigline">მთავარი ბუღალტერი</div>
+      </div>
+    </body>
+  </html>
+  
