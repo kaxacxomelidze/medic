@@ -108,6 +108,7 @@ $isLocked = ($_SESSION["login_attempts"] >= $max_attempts && time() < $_SESSION[
   <link rel="preload" href="fonts/HelveticaNeueLTGEO-75Bold.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="css/styles.css">
   <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+  <link rel="stylesheet" href="/css/preclinic-theme.css">
 </head>
 <body>
   <div class="login-outer">
