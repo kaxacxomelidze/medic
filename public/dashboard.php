@@ -2303,7 +2303,11 @@ $service_price = floatval($_POST['service_price'] ?? 0);
             .form-group { margin-bottom: 10px; }
         }
     </style>
+<<<<<<< HEAD
   <link rel="stylesheet" href="css/preclinic-theme.css">
+=======
+  <link rel="stylesheet" href="/css/preclinic-theme.css">
+>>>>>>> origin/main
 </head>
 <body>
 <div class="topbar">

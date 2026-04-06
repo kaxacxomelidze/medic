@@ -55,7 +55,11 @@ require_once dirname(dirname(__DIR__)) . "/config/config.php";
         .menu-card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.2); }
         .menu-icon { font-size: 3rem; color: #1e3c72; }
     </style>
+<<<<<<< HEAD
   <link rel="stylesheet" href="../css/preclinic-theme.css">
+=======
+  <link rel="stylesheet" href="/css/preclinic-theme.css">
+>>>>>>> origin/main
 </head>
 <body>
 

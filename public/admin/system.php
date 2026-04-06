@@ -61,7 +61,11 @@ function formatBytes($bytes) {
         body { background: #f5f6fa; }
         .admin-nav { background: #1e3c72; }
     </style>
+<<<<<<< HEAD
   <link rel="stylesheet" href="../css/preclinic-theme.css">
+=======
+  <link rel="stylesheet" href="/css/preclinic-theme.css">
+>>>>>>> origin/main
 </head>
 <body>
 

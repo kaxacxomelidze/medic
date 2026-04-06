@@ -11,7 +11,11 @@
             align-items: center;
         }
     </style>
+<<<<<<< HEAD
   <link rel="stylesheet" href="css/preclinic-theme.css">
+=======
+  <link rel="stylesheet" href="/css/preclinic-theme.css">
+>>>>>>> origin/main
 </head>
 <body>
     <h2>Logo Test Page</h2>

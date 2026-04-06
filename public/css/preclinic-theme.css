@@ -3,8 +3,11 @@
   Applies visual refresh without altering PHP business logic
 */
 
+<<<<<<< HEAD
 @import url('https://preclinic.dreamstechnologies.com/html/assets/css/bootstrap.min.css');
 @import url('https://preclinic.dreamstechnologies.com/html/assets/css/style.css');
+=======
+>>>>>>> origin/main
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap');
 
 :root{

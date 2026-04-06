@@ -18,7 +18,11 @@ $_SESSION = ['username' => 'TestUser', 'role' => 'admin', 'user_id' => 1];
     user-select: none;
 }
   </style>
+<<<<<<< HEAD
   <link rel="stylesheet" href="css/preclinic-theme.css">
+=======
+  <link rel="stylesheet" href="/css/preclinic-theme.css">
+>>>>>>> origin/main
 </head>
 <body>
 <h2>Dashboard Topbar Exact Copy</h2>

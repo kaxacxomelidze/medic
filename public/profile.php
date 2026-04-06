@@ -329,7 +329,11 @@ $CSRF = get_csrf();
     .grid2{grid-template-columns:1fr;}
   }
 </style>
+<<<<<<< HEAD
   <link rel="stylesheet" href="css/preclinic-theme.css">
+=======
+  <link rel="stylesheet" href="/css/preclinic-theme.css">
+>>>>>>> origin/main
 </head>
 <body>
 

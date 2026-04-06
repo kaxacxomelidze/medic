@@ -528,7 +528,11 @@ body{font-family:"Noto Sans Georgian",sans-serif;background:#f9f8f2;color:#222;m
 small.muted{color:#777}
 @media(max-width:700px){ .row{gap:10px}.form-group{max-width:100%}.table-wrap{margin:0 -8px} }
 </style>
+<<<<<<< HEAD
   <link rel="stylesheet" href="css/preclinic-theme.css">
+=======
+  <link rel="stylesheet" href="/css/preclinic-theme.css">
+>>>>>>> origin/main
 </head>
 <body>
 
