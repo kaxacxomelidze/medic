@@ -255,7 +255,8 @@ if ($_SERVER['REQUEST_METHOD']==='POST') {
               th{ background:#f4f4f4; }
               .right{ text-align:right; }
             </style>
-          </head>
+  <link rel="stylesheet" href="css/preclinic-theme.css">
+</head>
           <body>
             <h1>ინვოისი № <?= h($order_no) ?></h1>
             <div>თარიღი: <?= h(date('Y-m-d H:i')) ?></div>

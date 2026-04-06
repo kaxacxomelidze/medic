@@ -11,6 +11,7 @@
             align-items: center;
         }
     </style>
+  <link rel="stylesheet" href="css/preclinic-theme.css">
 </head>
 <body>
     <h2>Logo Test Page</h2>

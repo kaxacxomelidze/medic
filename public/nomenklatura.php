@@ -425,6 +425,7 @@ $cur = basename($_SERVER['PHP_SELF'] ?? '');
     .pager .muted{margin-left:auto}
     .selbox{width:18px;height:18px}
   </style>
+  <link rel="stylesheet" href="css/preclinic-theme.css">
 </head>
 <body>
 

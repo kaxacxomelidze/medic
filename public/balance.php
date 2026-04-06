@@ -657,6 +657,7 @@ if ($action === 'export_expenses') {
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Georgian:wght@100..900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/preclinic-theme.css">
 
 <style>
 :root{--bg:#f9f8f2;--surface:#fff;--text:#222;--muted:#6b7280;--brand:#21c1a6;--stroke:#e5e7eb;--shadow:0 6px 18px rgba(0,0,0,.06);--warn:#f59e0b;--danger:#ef4444}

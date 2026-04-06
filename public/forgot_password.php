@@ -61,6 +61,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             font-family: "Noto Sans Georgian", sans-serif !important;
         }
     </style>
+  <link rel="stylesheet" href="css/preclinic-theme.css">
 </head>
 <body>
     <div class="login-container">

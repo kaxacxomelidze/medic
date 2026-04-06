@@ -96,6 +96,15 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && empty($error)) {
     }
 }
 $isLocked = ($_SESSION["login_attempts"] >= $max_attempts && time() < $_SESSION["lockout_until"]);
+
+$landingStats = ["patients" => 0, "services" => 0, "payments" => 0.0];
+try {
+    $landingStats["patients"] = (int)$pdo->query("SELECT COUNT(*) FROM patients")->fetchColumn();
+    $landingStats["services"] = (int)$pdo->query("SELECT COUNT(*) FROM patient_services")->fetchColumn();
+    $landingStats["payments"] = (float)$pdo->query("SELECT COALESCE(SUM(amount),0) FROM payments")->fetchColumn();
+} catch (Throwable $e) {
+    // keep zero defaults for first-run / missing tables
+}
 ?>
 <!DOCTYPE html>
 <html lang="ka">
@@ -108,13 +117,77 @@ $isLocked = ($_SESSION["login_attempts"] >= $max_attempts && time() < $_SESSION[
   <link rel="preload" href="fonts/HelveticaNeueLTGEO-75Bold.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="css/styles.css">
   <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+  <link rel="stylesheet" href="css/preclinic-theme.css">
+  <style>
+    .home-shell{max-width:1400px;margin:26px auto;padding:0 16px;display:grid;grid-template-columns:1.25fr .95fr;gap:22px}
+    .home-hero{background:#fff;border:1px solid #e4e9f7;border-radius:20px;box-shadow:0 12px 30px rgba(17,24,39,.08);overflow:hidden}
+    .hero-head{padding:22px 24px;background:linear-gradient(120deg,#2e37a4,#5b66d6);color:#fff;display:flex;justify-content:space-between;gap:16px;align-items:center}
+    .hero-title{font-size:28px;font-weight:800;line-height:1.2;margin:0}
+    .hero-sub{margin:6px 0 0;opacity:.9}
+    .hero-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;padding:18px}
+    .metric{background:#f9fbff;border:1px solid #e5ebff;border-radius:14px;padding:16px}
+    .metric .label{font-size:13px;color:#667085}
+    .metric .value{font-size:28px;font-weight:800;color:#2e37a4;margin-top:4px}
+    .quick-links{padding:0 18px 18px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+    .q-item{display:flex;align-items:center;gap:10px;padding:12px 14px;border:1px solid #e5ebff;background:#fff;border-radius:12px;text-decoration:none;color:#1f2937;font-weight:600}
+    .q-item:hover{background:#f5f8ff}
+    .q-dot{width:10px;height:10px;border-radius:50%;background:#00d0f1;box-shadow:0 0 0 4px rgba(0,208,241,.15)}
+    .login-card{background:#fff;border:1px solid #e4e9f7;border-radius:20px;box-shadow:0 12px 30px rgba(17,24,39,.08);padding:22px}
+    .brand-row{display:flex;align-items:center;gap:12px;margin-bottom:16px}
+    .brand-row img{height:48px;width:auto;background:#2e37a4;padding:8px 10px;border-radius:10px}
+    .brand-title{font-size:20px;font-weight:800;color:#2e37a4}
+    .login-form h2{margin:0 0 14px}
+    .login-form .error{margin-bottom:10px}
+    .foot-note{padding-top:14px;font-size:12px;color:#667085}
+    @media (max-width:980px){
+      .home-shell{grid-template-columns:1fr}
+      .hero-grid{grid-template-columns:1fr}
+      .quick-links{grid-template-columns:1fr}
+    }
+  </style>
 </head>
 <body>
-  <div class="login-outer">
-    <img src="/img/logo-White.png?v=2" alt="Sanmedic Logo" class="auth-logo-center">
-    <div class="login-container">
+  <div class="home-shell">
+    <section class="home-hero">
+      <div class="hero-head">
+        <div>
+          <h1 class="hero-title">SanMedic • კლინიკის მართვის პლატფორმა</h1>
+          <p class="hero-sub">ყველა ძირითადი მოდული ერთ სივრცეში — რეგისტრაცია, პაციენტები, ანგარიშები და ადმინისტრირება.</p>
+        </div>
+        <div class="pill">Preclinic Style</div>
+      </div>
+      <div class="hero-grid">
+        <div class="metric">
+          <div class="label">რეგისტრირებული პაციენტები</div>
+          <div class="value"><?= number_format($landingStats["patients"]) ?></div>
+        </div>
+        <div class="metric">
+          <div class="label">მომსახურების ჩანაწერები</div>
+          <div class="value"><?= number_format($landingStats["services"]) ?></div>
+        </div>
+        <div class="metric">
+          <div class="label">სულ გადახდები</div>
+          <div class="value"><?= number_format($landingStats["payments"], 2) ?> ₾</div>
+        </div>
+      </div>
+      <div class="quick-links">
+        <a class="q-item" href="dashboard.php"><span class="q-dot"></span>რეგისტრაცია</a>
+        <a class="q-item" href="patient_hstory.php"><span class="q-dot"></span>პაციენტების ისტორია</a>
+        <a class="q-item" href="nomenklatura.php"><span class="q-dot"></span>ნომენკლატურა</a>
+        <a class="q-item" href="angarishebi.php"><span class="q-dot"></span>ანგარიშები</a>
+      </div>
+    </section>
+
+    <aside class="login-card">
+      <div class="brand-row">
+        <img src="img/logo-White.png?v=2" alt="Sanmedic Logo">
+        <div>
+          <div class="brand-title">SanMedic</div>
+          <div class="muted">უსაფრთხო ავტორიზაცია</div>
+        </div>
+      </div>
       <div class="login-form">
-        <h2>ავტორიზაცია</h2>
+        <h2>შესვლა სისტემაში</h2>
         <form method="post" action="">
           <?php if ($error): ?>
             <div class="error"><?= htmlspecialchars($error) ?></div>
@@ -126,9 +199,10 @@ $isLocked = ($_SESSION["login_attempts"] >= $max_attempts && time() < $_SESSION[
           </div>
           <div class="g-recaptcha" data-sitekey="<?= RECAPTCHA_SITE_KEY ?>" style="margin: 15px 0;"></div>
           <button type="submit"<?= $isLocked ? " disabled style=\"background:#888;cursor:not-allowed;\"" : "" ?>>შესვლა</button>
+          <div class="foot-note">თუ ვერ შედიხართ, მიმართეთ ადმინისტრატორს.</div>
         </form>
       </div>
-    </div>
+    </aside>
   </div>
   <script>
     document.addEventListener("DOMContentLoaded", function () {
