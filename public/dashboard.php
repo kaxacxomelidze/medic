@@ -43,8 +43,25 @@ if (!($__loaded_cfg && isset($pdo) && $pdo instanceof PDO)) {
   exit;
 }
 
-// 4) RBAC gate + enforce
-require_once $__root."/inc/rbac_gate.php";
+// 4) RBAC gate + enforce (support document roots where app lives in /public)
+$__rbacCandidates = [
+  __DIR__ . "/inc/rbac_gate.php",   // preferred: /public/inc/rbac_gate.php
+  $__root . "/inc/rbac_gate.php",   // legacy docroot-based path
+];
+$__rbacLoaded = false;
+foreach ($__rbacCandidates as $__rbacPath) {
+  if (is_file($__rbacPath)) {
+    require_once $__rbacPath;
+    $__rbacLoaded = true;
+    break;
+  }
+}
+if (!$__rbacLoaded) {
+  http_response_code(500);
+  error_log("SanMedic: RBAC gate not found in expected paths.");
+  echo "სისტემის შეცდომა. გთხოვთ დაუკავშირდეთ ადმინისტრატორს.";
+  exit;
+}
 requirePage($pdo);
 
 // Optional: flash helper
