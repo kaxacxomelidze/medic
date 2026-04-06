@@ -2933,7 +2933,9 @@ function generateForm100aPdf(PDO $pdo, int $sid, int $pid, array $payload): arra
       .s{margin:6px 0 2px}.sl{font-weight:bold}.tb{border:1px solid #ddd;padding:4px 6px;min-height:20px;margin:2px 0 6px;white-space:pre-wrap;word-wrap:break-word}
       table.dt{width:100%;border-collapse:collapse;margin:4px 0}table.dt td{padding:2px 4px;font-size:9pt}table.dt .dl{color:#555}
       .fs{margin-top:14px;text-align:center;font-size:9pt;color:#555}ul{margin:2px 0;padding-left:18px}li{margin:1px 0}
-    </style></head><body>';
+    </style>
+  <link rel="stylesheet" href="css/preclinic-theme.css">
+</head><body>';
     $html .= '<table width="100%"><tr><td style="vertical-align:top;font-size:8pt;color:#555">'.h($visitDT).'</td><td class="hr">დამტკიცებულია<br>საქართველოს შრომის, ჯანმრთელობისა<br>და სოციალური დაცვის მინისტრის<br>2007 წ. 09.08 &#8470; 338/ნ ბრძანებით</td></tr></table>';
     $html .= '<div class="tm">სამედიცინო დოკუმენტაცია ფორმა &#8470; IV-100/ა</div>';
     $html .= '<div class="ts">ცნობა ჯანმრთელობის მდგომარეობის შესახებ</div>';

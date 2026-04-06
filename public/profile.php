@@ -329,6 +329,7 @@ $CSRF = get_csrf();
     .grid2{grid-template-columns:1fr;}
   }
 </style>
+  <link rel="stylesheet" href="css/preclinic-theme.css">
 </head>
 <body>
 
